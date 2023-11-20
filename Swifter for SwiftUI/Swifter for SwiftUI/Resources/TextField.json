@@ -1,0 +1,6 @@
+{
+    "id": 4,
+    "name": "TextField",
+    "shortDescription": "A control that displays an editable text interface.",
+    "fullDescription": "The Text Field component in SwiftUI is a user interface element used for capturing text input from the user. It allows users to enter and edit text in a structured format within an app. Developers can customize its appearance, behavior, and functionality, including placeholder text, keyboard type, input validation, and handling user interactions. TextField is a fundamental building block for creating interactive and responsive user interfaces in SwiftUI applications."
+}

@@ -1,0 +1,6 @@
+{
+    "id": 1,
+    "name": "GroupBox",
+    "shortDescription": "A stylized view, with an optional label, that visually collects a logical grouping of content.",
+    "fullDescription": "Use a group box when you want to visually distinguish a portion of your user interface with an optional title for the boxed content."
+}

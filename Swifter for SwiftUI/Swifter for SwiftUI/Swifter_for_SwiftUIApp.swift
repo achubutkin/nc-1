@@ -22,10 +22,12 @@ struct Swifter_for_SwiftUIApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    @State private var modelData = ModelData()
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            AllComponentsView()
+                .environment(modelData)
         }
         .modelContainer(sharedModelContainer)
     }
@@ -43,7 +45,7 @@ var memoryOnlyModelContainer: ModelContainer = {
             let context = container.mainContext
             
             (0...9).forEach({ index in
-                context.insert(SwiftComponent(timestamp: Date.now))
+                context.insert(SwiftComponent(timestamp: Date.now, title: "Component's title \(index)"))
             })
         }
         return container
@@ -51,3 +53,27 @@ var memoryOnlyModelContainer: ModelContainer = {
         fatalError("Could not create ModelContainer: \(error)")
     }
 }()
+
+// Create a struct to represent your JSON data
+struct Item: Codable {
+    let id: Int
+    let name: String
+}
+
+class DataLoader: ObservableObject {
+    @Published var items: [Item] = []
+
+    func loadData() async {
+        do {
+            if let fileURL = Bundle.main.url(forResource: "SwiftUIComponents", withExtension: "json") {
+                let data = try Data(contentsOf: fileURL)
+                let decodedData = try JSONDecoder().decode([Item].self, from: data)
+                DispatchQueue.main.async {
+                    self.items = decodedData
+                }
+            }
+        } catch {
+            print("Error loading data: \(error.localizedDescription)")
+        }
+    }
+}

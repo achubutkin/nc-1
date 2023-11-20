@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "name": "Layout and organization",
+        "components": [
+            {
+                "id": 1,
+                "name": "GroupBox"
+            },
+            {
+                "id": 2,
+                "name": "List"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Menus and actions",
+        "components": [
+            {
+                "id": 3,
+                "name": "Button"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Selection and input",
+        "components": [
+            {
+                "id": 4,
+                "name": "TextField"
+            }
+        ]
+    }
+]

@@ -1,0 +1,6 @@
+{
+    "id": 2,
+    "name": "List",
+    "shortDescription": "A container that presents rows of data arranged in a single column, optionally providing the ability to select one or more members.",
+    "fullDescription": "List component in SwiftUI is a powerful view used to display a collection of data in a vertical scrolling list. It's highly customizable and can be populated with various data types, including text, images, or custom views. Lists efficiently handle dynamic data by using SwiftUI's declarative syntax, enabling easy integration of features like row reordering, deletion, and selection. This component simplifies the creation of structured and interactive interfaces for iOS, macOS, watchOS, and tvOS applications."
+}

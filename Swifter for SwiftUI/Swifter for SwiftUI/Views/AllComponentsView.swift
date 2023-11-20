@@ -8,14 +8,19 @@
 import SwiftUI
 import SwiftData
 
-struct HomeView: View {
+struct AllComponentsView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(ModelData.self) var modelData
+ 
     @Query private var items: [SwiftComponent]
-    
     @State var searchComponentText = ""
 
     var body: some View {
-        NavigationSplitView {
+        let filteredComponents: [Group] = modelData.allComponents.filter { group in
+            searchComponentText.isEmpty || group.components.contains(where: { component in component.name.contains(searchComponentText) })
+        }
+       
+        NavigationStack {
             List {
                 Section {
                     
@@ -23,15 +28,21 @@ struct HomeView: View {
                     Text("Learn how to use and customize system-defined components to give people a familiar and consistent experience.")
                 }
                 
-                Section {
-                    ForEach(items) { item in
-                        NavigationLink(item.timestamp.description) {
-                            DetailsView()
+                ForEach(filteredComponents) { group in
+                    Section {
+                        ForEach(group.components) { component in
+                            NavigationLink {
+                                DetailsView(component: component, componentDetails: modelData.componentDetails)
+                                    .onAppear {
+                                        modelData.loadComponentDetails(name: component.name)
+                                    }
+                            } label: {
+                                Text(component.name)
+                            }
                         }
+                    } header: {
+                        Text(group.name)
                     }
-                    .onDelete(perform: deleteItems)
-                } header: {
-                    Text("Basic components")
                 }
                 
                 Section {
@@ -39,12 +50,12 @@ struct HomeView: View {
                         NavigationLink {
                             Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
                         } label: {
-                            Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                            Text(item.title)
                         }
                     }
                     .onDelete(perform: deleteItems)
                 } header: {
-                    Text("Advanced components")
+                    Text("Others")
                 }
             }
             .toolbar {
@@ -59,14 +70,12 @@ struct HomeView: View {
             }
             .searchable(text: $searchComponentText, prompt: "Type component name")
             .navigationTitle("Swift UI")
-        } detail: {
-            Text("Select an item")
         }
     }
 
     private func addItem() {
         withAnimation {
-            let newItem = SwiftComponent(timestamp: Date())
+            let newItem = SwiftComponent(timestamp: Date(), title: "")
             modelContext.insert(newItem)
         }
     }
@@ -81,6 +90,7 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    AllComponentsView()
         .modelContainer(memoryOnlyModelContainer)
+        .environment(ModelData())
 }

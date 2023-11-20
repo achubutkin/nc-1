@@ -1,0 +1,46 @@
+{
+    "id": 3,
+    "name": "Button",
+    "shortDescription": "A control that initiates an action.",
+    "fullDescription": "A Button in SwiftUI is a user interface element that presents a tappable area on the screen, allowing users to trigger actions or events when tapped. It can be customized with various styles, text, and actions, making it an interactive element within the app's user interface.",
+    "blocks": [
+        {
+            "type": "text",
+            "content": "This code creates a basic Button that displays \"Tap Me\" text. When tapped, it prints \"Button tapped!\" to the console."
+        },
+        {
+            "type": "code",
+            "content": "import SwiftUI\n\nstruct ContentView: View {\n    var body: some View {\n        Button(\"Tap Me\") {\n            \/\/ Action to perform when the button is tapped\n            print(\"Button tapped!\")\n        }\n    }\n}",
+            "aiCodeGeneratorPrompt": "Make example of Button component with buttonStyle() modifier."
+        },
+        {
+            "type": "text",
+            "content": "This code creates a Button with a custom appearance. It displays \"Press Here\" with white text on a blue background, and when tapped, it prints \"Button tapped!\" to the console."
+        },
+        {
+            "type": "codeBlockAndPreview",
+            "content": "import SwiftUI\n\nstruct ContentView: View {\n    var body: some View {\n        Button(action: {\n            \/\/ Action to perform when the button is tapped\n            print(\"Button tapped!\")\n        }) {\n            Text(\"Press Here\")\n                .foregroundColor(.white)\n                .padding()\n                .background(Color.blue)\n                .cornerRadius(8)\n        }\n    }\n}",
+            "previewComponent": "PreviewButton2"
+        },
+        {
+            "type": "code",
+            "content": "import SwiftUI\n\nstruct ContentView: View {\n    var body: some View {\n        Button(action: {\n            \/\/ Action to perform when the button is tapped\n            print(\"Button tapped!\")\n        }) {\n            Text(\"Press Here\")\n                .foregroundColor(.white)\n                .padding()\n                .background(Color.blue)\n                .cornerRadius(8)\n        }\n    }\n}"
+        },
+        {
+            "type": "text",
+            "content": "This code demonstrates using a Button wrapped in a NavigationLink. When \"Go to Next Screen\" is tapped, it navigates to a new screen displaying \"Next Screen\" using a NavigationView and sets the navigation bar title to \"Button Example\"."
+        },
+        {
+            "type": "code",
+            "content": "import SwiftUI\n\nstruct ContentView: View {\n    var body: some View {\n        NavigationView {\n            NavigationLink(destination: Text(\"Next Screen\")) {\n                Text(\"Go to Next Screen\")\n                    .foregroundColor(.white)\n                    .padding()\n                    .background(Color.green)\n                    .cornerRadius(8)\n            }\n            .navigationBarTitle(\"Button Example\")\n        }\n    }\n}"
+        },
+        {
+            "type": "preview",
+            "content": "PreviewButton1"
+        },
+        {
+            "type": "text",
+            "content": "[Human Interface Guidelines](https:\/\/developer.apple.com\/documentation\/SwiftUI\/Button)\n\n# Dillinger\n## _The Last Markdown Editor, Ever_"
+        }
+    ]
+}
