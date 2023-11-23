@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PreviewButton11: View {
+struct PreviewButtonAllButtons: View {
     var body: some View {
         VStack(spacing: 16) {
             HStack(spacing: 16) {
@@ -39,10 +39,9 @@ struct PreviewButton11: View {
                         .font(.headline)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(.blue)
-                        .foregroundColor(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
+                .buttonStyle(.borderedProminent)
                 
                 Button {
                     // action code
@@ -83,5 +82,5 @@ struct PreviewButton11: View {
 }
 
 #Preview {
-    PreviewButton11()
+    PreviewButtonAllButtons()
 }

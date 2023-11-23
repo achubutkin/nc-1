@@ -11,9 +11,7 @@ import SwiftData
 @main
 struct Swifter_for_SwiftUIApp: App {
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            SwiftComponent.self,
-        ])
+        let schema = Schema([])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {
@@ -34,9 +32,7 @@ struct Swifter_for_SwiftUIApp: App {
 }
 
 var memoryOnlyModelContainer: ModelContainer = {
-    let schema = Schema([
-        SwiftComponent.self
-    ])
+    let schema = Schema([])
     let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
     
     do {
@@ -44,9 +40,11 @@ var memoryOnlyModelContainer: ModelContainer = {
         Task { @MainActor in
             let context = container.mainContext
             
+            /*
             (0...9).forEach({ index in
                 context.insert(SwiftComponent(timestamp: Date.now, title: "Component's title \(index)"))
             })
+            */
         }
         return container
     } catch {

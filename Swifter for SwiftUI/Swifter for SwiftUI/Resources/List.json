@@ -2,5 +2,43 @@
     "id": 2,
     "name": "List",
     "shortDescription": "A container that presents rows of data arranged in a single column, optionally providing the ability to select one or more members.",
-    "fullDescription": "List component in SwiftUI is a powerful view used to display a collection of data in a vertical scrolling list. It's highly customizable and can be populated with various data types, including text, images, or custom views. Lists efficiently handle dynamic data by using SwiftUI's declarative syntax, enabling easy integration of features like row reordering, deletion, and selection. This component simplifies the creation of structured and interactive interfaces for iOS, macOS, watchOS, and tvOS applications."
+    "fullDescription": "List component in SwiftUI is a powerful view used to display a collection of data in a vertical scrolling list. It's highly customizable and can be populated with various data types, including text, images, or custom views. Lists efficiently handle dynamic data by using SwiftUI's declarative syntax, enabling easy integration of features like row reordering, deletion, and selection. This component simplifies the creation of structured and interactive interfaces for iOS, macOS, watchOS, and tvOS applications.",
+    "blocks": [
+        {
+            "type": "text",
+            "content": "The following code creates a basic Button that displays \"Button\" text."
+        },
+        {
+            "type": "codeBlockAndPreview",
+            "content": "struct ContentView: View {\n    var body: some View {\n        Button {\n            \/\/ action code\n        } label: {\n            Text(\"Button\")\n                .padding(.horizontal)\n                .padding(.vertical, 8)\n        }\n        .buttonStyle(.borderedProminent)\n    }\n}\n\n#Preview {\n    ContentView()\n}",
+            "previewComponent": "PreviewList1"
+        },
+        {
+            "type": "text",
+            "content": "The following code creates a basic Button that displays \"Button\" text."
+        },
+        {
+            "type": "codeBlockAndPreview",
+            "content": "struct ContentView: View {\n    var body: some View {\n        Button {\n            \/\/ action code\n        } label: {\n            Text(\"Button\")\n                .padding(.horizontal)\n                .padding(.vertical, 8)\n        }\n        .buttonStyle(.borderedProminent)\n    }\n}\n\n#Preview {\n    ContentView()\n}",
+            "previewComponent": "PreviewList2"
+        },
+        {
+            "type": "text",
+            "content": "The following code creates a basic Button that displays \"Button\" text."
+        },
+        {
+            "type": "codeBlockAndPreview",
+            "content": "struct ContentView: View {\n    var body: some View {\n        Button {\n            \/\/ action code\n        } label: {\n            Text(\"Button\")\n                .padding(.horizontal)\n                .padding(.vertical, 8)\n        }\n        .buttonStyle(.borderedProminent)\n    }\n}\n\n#Preview {\n    ContentView()\n}",
+            "previewComponent": "PreviewList3"
+        },
+        {
+            "type": "text",
+            "content": "The following code creates a basic Button that displays \"Button\" text."
+        },
+        {
+            "type": "codeBlockAndPreview",
+            "content": "struct ContentView: View {\n    var body: some View {\n        Button {\n            \/\/ action code\n        } label: {\n            Text(\"Button\")\n                .padding(.horizontal)\n                .padding(.vertical, 8)\n        }\n        .buttonStyle(.borderedProminent)\n    }\n}\n\n#Preview {\n    ContentView()\n}",
+            "previewComponent": "PreviewList4"
+        },
+    ]
 }

@@ -9,6 +9,8 @@ import SwiftUI
 import Splash
 
 struct CodeBlockHighlighter: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var content: String?
     var actions: AnyView?
     
@@ -32,8 +34,10 @@ struct CodeBlockHighlighter: View {
     }
     
     func getHighlightedCodeBlock(_ content: String) -> NSAttributedString {
-        // TODO: Do I neeed extract SyntaxHighlighter as static singleton instance?
-        let highlighter = SyntaxHighlighter(format: AttributedStringOutputFormat(theme: .presentation(withFont: .init(size: scaledFontSize))))
+        var theme = Theme.presentation(withFont: .init(size: scaledFontSize))
+        theme.plainTextColor = (colorScheme == .light ? .black : .white)
+        
+        let highlighter = SyntaxHighlighter(format: AttributedStringOutputFormat(theme: theme))
         let highlightedCodeBlock = highlighter.highlight(content)
         
         return highlightedCodeBlock
@@ -41,15 +45,5 @@ struct CodeBlockHighlighter: View {
 }
 
 #Preview {
-    CodeBlockHighlighter(content: "func hello(world: String) -> Int", actions: AnyView(VStack {
-        Button(action: {}) {
-            Label("Copy", systemImage: "doc.on.doc")
-                .frame(width: 32, height: 32)
-        }
-        .labelStyle(.iconOnly)
-        .buttonStyle(.bordered)
-        .foregroundColor(.black.opacity(0.8))
-        .buttonBorderShape(.circle)
-        .frame(width: 38, height: 38)
-    }))
+    CodeBlockHighlighter(content: "func hello(world: String) -> Int")
 }

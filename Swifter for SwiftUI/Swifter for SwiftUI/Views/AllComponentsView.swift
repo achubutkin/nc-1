@@ -11,8 +11,7 @@ import SwiftData
 struct AllComponentsView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(ModelData.self) var modelData
- 
-    @Query private var items: [SwiftComponent]
+
     @State var searchComponentText = ""
 
     var body: some View {
@@ -44,47 +43,9 @@ struct AllComponentsView: View {
                         Text(group.name)
                     }
                 }
-                
-                Section {
-                    ForEach(items) { item in
-                        NavigationLink {
-                            Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                        } label: {
-                            Text(item.title)
-                        }
-                    }
-                    .onDelete(perform: deleteItems)
-                } header: {
-                    Text("Others")
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
             }
             .searchable(text: $searchComponentText, prompt: "Type component name")
             .navigationTitle("Swift UI")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = SwiftComponent(timestamp: Date(), title: "")
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
         }
     }
 }

@@ -8,47 +8,48 @@
 import SwiftUI
 
 struct CodeBlockAndPreviewRenderer: View {
+    @ScaledMetric(relativeTo: .body) var scaledButtonSize: CGFloat = 22
+    
     var content: String?
     var previewComponent: String?
-    @State var isCopied = false
+    
+    @State private var isCopied = false
     
     var body: some View {
-        ScrollView {
-            VStack (spacing: 0) {
+        VStack (spacing: 0) {
+            if previewComponent != nil && !previewComponent!.isEmpty {
                 ZStack {
                     Color.gray.opacity(0.16)
-                    if previewComponent != nil && !previewComponent!.isEmpty {
-                        ZStack {
-                            let previewComponent = PreviewComponents[previewComponent!]
-                            if previewComponent != nil {
-                                previewComponent
-                            }
+                    ZStack {
+                        let previewComponent = PreviewComponents[previewComponent!]
+                        if previewComponent != nil {
+                            previewComponent
                         }
-                        .padding()
-                        .frame(maxWidth: .infinity)
                     }
+                    .padding()
+                    .frame(maxWidth: .infinity)
                 }
-                
-                ZStack {
-                    CodeBlockHighlighter(content: content, actions: AnyView(
-                        Button(action: copyCodeBlock) {
-                            Label("Copy", systemImage: isCopied ? "checkmark" : "doc.on.doc")
-                                .frame(width: 32, height: 32)
-                        }
+            }
+            
+            ZStack {
+                CodeBlockHighlighter(content: content, actions: AnyView(
+                    Button(action: copyCodeBlock) {
+                        Label("Copy", systemImage: isCopied ? "checkmark" : "doc.on.doc")
+                            .frame(width: scaledButtonSize, height: scaledButtonSize)
+                    }
                         .labelStyle(.iconOnly)
                         .buttonStyle(.bordered)
-                        .foregroundColor(.black.opacity(0.8))
+                        .foregroundColor(.gray)
                         .buttonBorderShape(.circle)
                         .contentTransition(.symbolEffect(.replace))
-                        .frame(width: 38, height: 38)
-                    ))
-                }
-                .padding()
-                .background(Color.gray.opacity(0.1))
+                        .frame(width: scaledButtonSize, height: scaledButtonSize)
+                ))
             }
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .padding()
+            .background(Color.gray.opacity(0.1))
         }
-        .padding()
+        .padding(EdgeInsets(top: 0, leading: 0, bottom: 16, trailing: 0))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
     
     func copyCodeBlock() -> Void {

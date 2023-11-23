@@ -11,19 +11,22 @@ struct BlocksRenderer: View {
     var blocks: [Block]? = []
     
     var body: some View {
-        if let blocks {
-            ForEach(blocks, id: \.hashValue) { block in
-                switch block.type {
-                case BlockTypes.code:
-                    CodeBlockRenderer(block: block)
-                case .text:
-                    TextBlockRenderer(content: block.content)
-                case .preview:
-                    PreviewBlockRenderer(content: block.content)
-                case .codeBlockAndPreview:
-                    CodeBlockAndPreviewRenderer(content: block.content, previewComponent: block.previewComponent)
-                }
-            }
+        ForEach(blocks ?? [], id: \.hashValue) { block in
+            renderBlock(block)
+        }
+    }
+    
+    @ViewBuilder
+    private func renderBlock(_ block: Block) -> some View {
+        switch block.type {
+        case .code:
+            CodeBlockAndAICodeGeneratorRenderer(content: block.content, aiCodeGeneratorPrompt: block.aiCodeGeneratorPrompt)
+        case .text:
+            TextBlockRenderer(content: block.content)
+        case .preview:
+            PreviewBlockRenderer(content: block.content)
+        case .codeBlockAndPreview:
+            CodeBlockAndPreviewRenderer(content: block.content, previewComponent: block.previewComponent)
         }
     }
 }

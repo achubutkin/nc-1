@@ -19,6 +19,9 @@ struct PreviewBlockRenderer: View {
                 if previewComponent != nil {
                     previewComponent
                 }
+                else {
+                    fatalError("Not found component!")
+                }
             }
             .padding()
             .background(.gray.opacity(0.1))

@@ -7,53 +7,13 @@
 
 import SwiftUI
 
-struct BlockTitle: View {
-    var content: String
-    
-    var body: some View {
-        HStack {
-            Text(content)
-                .font(.system(size: 16, weight: .bold))
-        }
-        .padding(EdgeInsets(top: 24, leading: 16, bottom: 10, trailing: 16))
-        .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}
-
-struct BlockParagraph: View {
-    var content: (any StringProtocol)?
-    var attributedContent: AttributedString?
-    
-    public init<S>(_ content: S) where S : StringProtocol {
-        self.content = content
-    }
-    
-    var body: some View {
-        HStack {
-            if let content {
-                Text(content)
-            }
-            else if let attributedContent {
-                Text(attributedContent)
-            }
-        }
-        .padding(EdgeInsets(top: 0, leading: 16, bottom: 24, trailing: 16))
-        .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}
-
-extension BlockParagraph {
-    public init(_ attributedContent: AttributedString) {
-        self.attributedContent = attributedContent
-    }
-}
-
 struct DetailsView: View {
     var component: Component
     var componentDetails: ComponentDetails?
-
+    
     var body: some View {
         NavigationStack {
+            
             ScrollView {
                 if let details = componentDetails {
                     BlockTitle(content: details.name)
@@ -61,6 +21,9 @@ struct DetailsView: View {
                     BlockParagraph(details.shortDescription)
                         .fontDesign(.monospaced)
                     BlockParagraph(details.fullDescription)
+                    BlockTitle(content: "Details")
+                    
+                    // Render all dynamics blocks
                     BlocksRenderer(blocks: details.blocks)
                 }
             }

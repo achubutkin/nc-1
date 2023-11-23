@@ -7,19 +7,18 @@
 
 import SwiftUI
 
-struct PreviewButton1: View {
+struct PreviewButton3: View {
     var body: some View {
         Button {
             // action code
         } label: {
-            Text("Button")
-                .padding(.horizontal)
-                .padding(.vertical, 8)
+            Label("Add Item", systemImage: "plus")
+                .labelStyle(.automatic)
+                .padding()
         }
-        .buttonStyle(.borderedProminent)
     }
 }
 
 #Preview {
-    PreviewButton1()
+    PreviewButton3()
 }
