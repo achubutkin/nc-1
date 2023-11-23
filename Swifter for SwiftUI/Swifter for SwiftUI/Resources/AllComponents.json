@@ -5,11 +5,27 @@
         "components": [
             {
                 "id": 1,
-                "name": "GroupBox"
+                "name": "GroupBox",
+                "locked": true
             },
             {
                 "id": 2,
                 "name": "List"
+            },
+            {
+                "id": 3,
+                "name": "Image",
+                "locked": true
+            },
+            {
+                "id": 4,
+                "name": "Label",
+                "locked": true
+            },
+            {
+                "id": 5,
+                "name": "Text",
+                "locked": true
             }
         ]
     },
@@ -18,18 +34,82 @@
         "name": "Menus and actions",
         "components": [
             {
-                "id": 3,
+                "id": 6,
                 "name": "Button"
+            },
+            {
+                "id": 7,
+                "name": "Menu",
+                "locked": true
             }
         ]
     },
     {
-        "id": 3,
-        "name": "Selection and input",
+        "id": 0,
+        "name": "Selection and Input",
         "components": [
             {
-                "id": 4,
-                "name": "TextField"
+                "id": 7,
+                "name": "TextField",
+                "locked": true
+            },
+            {
+                "id": 8,
+                "name": "Picker",
+                "locked": true
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Navigation and Search",
+        "components": [
+            {
+                "id": 9,
+                "name": "Searching",
+                "locked": true
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Presentation",
+        "components": [
+            {
+                "id": 0,
+                "name": "Other",
+                "locked": true
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Selection and Input",
+        "components": [
+            {
+                "id": 0,
+                "name": "Other",
+                "locked": true
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Status",
+        "components": [
+            {
+                "id": 0,
+                "name": "Other"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "System Experiences",
+        "components": [
+            {
+                "id": 0,
+                "name": "Other"
             }
         ]
     }

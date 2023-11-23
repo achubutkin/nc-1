@@ -30,13 +30,34 @@ struct AllComponentsView: View {
                 ForEach(filteredComponents) { group in
                     Section {
                         ForEach(group.components) { component in
+                            let locked = component.locked ?? false
+                            
                             NavigationLink {
-                                DetailsView(component: component, componentDetails: modelData.componentDetails)
-                                    .onAppear {
-                                        modelData.loadComponentDetails(name: component.name)
+                                if locked {
+                                    VStack {
+                                        Text(component.name)
+                                            .font(.title3)
+                                        Text("Not implemeted. Please, see List or Button components.")
+                                            .multilineTextAlignment(.center)
+                                            .padding()
                                     }
+                                }
+                                else {
+                                    DetailsView(component: component, componentDetails: modelData.componentDetails)
+                                        .onAppear {
+                                            modelData.loadComponentDetails(name: component.name)
+                                        }
+                                }
                             } label: {
-                                Text(component.name)
+                                HStack {
+                                    Text(component.name)
+            
+                                    if locked {
+                                        Spacer()
+                                        Image(systemName: "lock")
+                                            .foregroundStyle(.gray)
+                                    }
+                                }
                             }
                         }
                     } header: {

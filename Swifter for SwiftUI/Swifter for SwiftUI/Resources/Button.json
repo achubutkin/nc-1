@@ -48,6 +48,10 @@
             "type": "code",
             "content": "import SwiftUI\n\nstruct ContentView: View {\n    var body: some View {\n        Button(\"Button\") {\n            \/\/ action code\n        }\n    }\n}",
             "aiCodeGeneratorPrompt": "Make example of Button component."
+        },
+        {
+            "type": "text",
+            "content": "Human Interface Guidelines, HIG: [Buttons](https://developer.apple.com/design/human-interface-guidelines/buttons)"
         }
     ]
 }

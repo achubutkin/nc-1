@@ -9,13 +9,15 @@ import SwiftUI
 
 struct PreviewList2: View {
     var body: some View {
-        List {
-            Text("Item 1")
-            Text("Item 2")
-            Text("Item 3")
+        VStack {
+            List {
+                Text("Item 1")
+                Text("Item 2")
+                Text("Item 3")
+            }
+            .staticScaleListHeightModifier()
+            .listStyle(.plain)
         }
-        .staticScaleListHeightModifier()
-        .listStyle(.plain)
     }
 }
 

@@ -20,9 +20,10 @@ struct DetailsView: View {
                         .fontDesign(.monospaced)
                     BlockParagraph(details.shortDescription)
                         .fontDesign(.monospaced)
-                    BlockParagraph(details.fullDescription)
-                    BlockTitle(content: "Details")
                     
+                    TextBlockRenderer(content: details.fullDescription)
+                    
+                    BlockTitle(content: "Details")
                     // Render all dynamics blocks
                     BlocksRenderer(blocks: details.blocks)
                 }

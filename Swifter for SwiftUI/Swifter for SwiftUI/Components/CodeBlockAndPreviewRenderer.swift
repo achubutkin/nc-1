@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CodeBlockAndPreviewRenderer: View {
+    @Environment(\.colorScheme) var colorScheme
     @ScaledMetric(relativeTo: .body) var scaledButtonSize: CGFloat = 22
     
     var content: String?
@@ -33,13 +34,14 @@ struct CodeBlockAndPreviewRenderer: View {
             
             ZStack {
                 CodeBlockHighlighter(content: content, actions: AnyView(
+                    // TODO: Need extract to separated component, DRY
                     Button(action: copyCodeBlock) {
                         Label("Copy", systemImage: isCopied ? "checkmark" : "doc.on.doc")
                             .frame(width: scaledButtonSize, height: scaledButtonSize)
                     }
                         .labelStyle(.iconOnly)
                         .buttonStyle(.bordered)
-                        .foregroundColor(.gray)
+                        .foregroundColor(colorScheme == .dark ? .white : .black)
                         .buttonBorderShape(.circle)
                         .contentTransition(.symbolEffect(.replace))
                         .frame(width: scaledButtonSize, height: scaledButtonSize)
@@ -52,6 +54,7 @@ struct CodeBlockAndPreviewRenderer: View {
         .clipShape(RoundedRectangle(cornerRadius: 16))
     }
     
+    // TODO: Need to extract, DRY
     func copyCodeBlock() -> Void {
         if isCopied {
             return
@@ -66,5 +69,5 @@ struct CodeBlockAndPreviewRenderer: View {
 }
 
 #Preview {
-    CodeBlockAndPreviewRenderer(content: "func hello(world: String) -> Void", previewComponent: "PreviewButton2")
+    CodeBlockAndPreviewRenderer(content: "func hello(world: String) -> Void", previewComponent: "PreviewList2")
 }

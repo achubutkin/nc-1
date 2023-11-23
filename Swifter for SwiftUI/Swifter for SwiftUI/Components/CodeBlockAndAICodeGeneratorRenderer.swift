@@ -70,7 +70,7 @@ struct CodeBlockAndAICodeGeneratorRenderer: View {
                         }
                         .labelStyle(.iconOnly)
                         .buttonStyle(.bordered)
-                        .foregroundColor(.gray)
+                        .foregroundColor(colorScheme == .dark ? .white : .black)
                         .buttonBorderShape(.circle)
                         .contentTransition(.symbolEffect(.replace))
                         .frame(width: scaledButtonSize, height: scaledButtonSize)

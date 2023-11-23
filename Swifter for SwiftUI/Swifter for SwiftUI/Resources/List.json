@@ -6,39 +6,48 @@
     "blocks": [
         {
             "type": "text",
-            "content": "The following code creates a basic Button that displays \"Button\" text."
+            "content": "The following code creates a basic List with default style."
         },
         {
             "type": "codeBlockAndPreview",
-            "content": "struct ContentView: View {\n    var body: some View {\n        Button {\n            \/\/ action code\n        } label: {\n            Text(\"Button\")\n                .padding(.horizontal)\n                .padding(.vertical, 8)\n        }\n        .buttonStyle(.borderedProminent)\n    }\n}\n\n#Preview {\n    ContentView()\n}",
+            "content": "List {\n  Text(\"Item 1\")\n  Text(\"Item 2\")\n  Text(\"Item 3\")\n}",
             "previewComponent": "PreviewList1"
         },
         {
             "type": "text",
-            "content": "The following code creates a basic Button that displays \"Button\" text."
+            "content": "The following code creates a basic List with default style."
         },
         {
             "type": "codeBlockAndPreview",
-            "content": "struct ContentView: View {\n    var body: some View {\n        Button {\n            \/\/ action code\n        } label: {\n            Text(\"Button\")\n                .padding(.horizontal)\n                .padding(.vertical, 8)\n        }\n        .buttonStyle(.borderedProminent)\n    }\n}\n\n#Preview {\n    ContentView()\n}",
+            "content": "List {\n  Text(\"Item 1\")\n  Text(\"Item 2\")\n  Text(\"Item 3\")\n}\n  .listStyle(.plain)",
             "previewComponent": "PreviewList2"
         },
         {
             "type": "text",
-            "content": "The following code creates a basic Button that displays \"Button\" text."
+            "content": "The following code creates a basic List with default style."
         },
         {
             "type": "codeBlockAndPreview",
-            "content": "struct ContentView: View {\n    var body: some View {\n        Button {\n            \/\/ action code\n        } label: {\n            Text(\"Button\")\n                .padding(.horizontal)\n                .padding(.vertical, 8)\n        }\n        .buttonStyle(.borderedProminent)\n    }\n}\n\n#Preview {\n    ContentView()\n}",
+            "content": "List {\n  NavigationLink(\"Item 1\", value: \"\")\n  NavigationLink(\"Item 2\", value: \"\")\n  NavigationLink(\"Item 3\", value: \"\")\n}",
             "previewComponent": "PreviewList3"
         },
         {
             "type": "text",
-            "content": "The following code creates a basic Button that displays \"Button\" text."
+            "content": "The following code creates a basic List with default style."
         },
         {
             "type": "codeBlockAndPreview",
-            "content": "struct ContentView: View {\n    var body: some View {\n        Button {\n            \/\/ action code\n        } label: {\n            Text(\"Button\")\n                .padding(.horizontal)\n                .padding(.vertical, 8)\n        }\n        .buttonStyle(.borderedProminent)\n    }\n}\n\n#Preview {\n    ContentView()\n}",
+            "content": "List {\n  NavigationLink {\n                    \n                } label: {\n  HStack {\n  Text(\"Item 1\")\n                        Spacer()\n  Text(\"TOP\")\n                    }\n                }\n  NavigationLink(\"Item 2\", value: \"\")\n                NavigationLink(\"Item 3\", value: \"\")\n}\n  .listStyle(.plain)",
             "previewComponent": "PreviewList4"
         },
+        {
+            "type": "code",
+            "content": "List {\n  Text(\"Item 1\")\n  Text(\"Item 2\")\n  Text(\"Item 3\")\n}",
+            "aiCodeGeneratorPrompt": "Make example of List component."
+        },
+        {
+            "type": "text",
+            "content": "Human Interface Guidelines, HIG: [Lists and Tables](https://developer.apple.com/design/human-interface-guidelines/lists-and-tables)"
+        }
     ]
 }

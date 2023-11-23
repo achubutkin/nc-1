@@ -10,4 +10,5 @@ import Foundation
 struct Component: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
+    var locked: Bool?
 }
