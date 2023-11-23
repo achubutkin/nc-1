@@ -15,7 +15,7 @@
         },
         {
             "type": "text",
-            "content": "This code creates a Button with a custom appearance. It displays \"Press Here\" with white text on a blue background, and when tapped, it prints \"Button tapped!\" to the console."
+            "content": "The following code creates a basic Button that displays \"Button\" text."
         },
         {
             "type": "codeBlockAndPreview",
