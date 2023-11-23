@@ -49,12 +49,12 @@
         "name": "Selection and Input",
         "components": [
             {
-                "id": 7,
+                "id": 8,
                 "name": "TextField",
                 "locked": true
             },
             {
-                "id": 8,
+                "id": 9,
                 "name": "Picker",
                 "locked": true
             }
@@ -65,7 +65,7 @@
         "name": "Navigation and Search",
         "components": [
             {
-                "id": 9,
+                "id": 10,
                 "name": "Searching",
                 "locked": true
             }
@@ -76,7 +76,7 @@
         "name": "Presentation",
         "components": [
             {
-                "id": 0,
+                "id": 11,
                 "name": "Other",
                 "locked": true
             }
@@ -87,7 +87,7 @@
         "name": "Selection and Input",
         "components": [
             {
-                "id": 0,
+                "id": 12,
                 "name": "Other",
                 "locked": true
             }
@@ -98,7 +98,7 @@
         "name": "Status",
         "components": [
             {
-                "id": 0,
+                "id": 13,
                 "name": "Other"
             }
         ]
@@ -108,7 +108,7 @@
         "name": "System Experiences",
         "components": [
             {
-                "id": 0,
+                "id": 14,
                 "name": "Other"
             }
         ]

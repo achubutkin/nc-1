@@ -17,6 +17,7 @@ struct PreviewButton2: View {
                 .padding(.vertical, 8)
                 .frame(maxWidth: .infinity)
         }
+        .frame(maxWidth: 400)
         .buttonStyle(.borderedProminent)
         .tint(.orange)
     }

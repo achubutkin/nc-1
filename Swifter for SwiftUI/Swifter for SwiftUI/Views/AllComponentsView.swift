@@ -12,15 +12,17 @@ struct AllComponentsView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(ModelData.self) var modelData
 
-    @State var searchComponentText = ""
+    @State private var searchComponentText = ""
+    @State private var selectedComponents: Set<Component.ID> = [2]
+    @State private var selectedComponent: Component?
 
     var body: some View {
         let filteredComponents: [Group] = modelData.allComponents.filter { group in
             searchComponentText.isEmpty || group.components.contains(where: { component in component.name.contains(searchComponentText) })
         }
        
-        NavigationStack {
-            List {
+        NavigationSplitView {
+            List(selection: $selectedComponents) {
                 Section {
                     
                 } footer: {
@@ -46,6 +48,7 @@ struct AllComponentsView: View {
                                     DetailsView(component: component, componentDetails: modelData.componentDetails)
                                         .onAppear {
                                             modelData.loadComponentDetails(name: component.name)
+                                            selectedComponent = component
                                         }
                                 }
                             } label: {
@@ -67,6 +70,26 @@ struct AllComponentsView: View {
             }
             .searchable(text: $searchComponentText, prompt: "Type component name")
             .navigationTitle("Swift UI")
+        } detail: {
+            /*
+            let locked = component.locked ?? false
+            
+            if locked {
+                VStack {
+                    Text(component.name)
+                        .font(.title3)
+                    Text("Not implemeted. Please, see List or Button components.")
+                        .multilineTextAlignment(.center)
+                        .padding()
+                }
+            }
+            else {
+                DetailsView(component: component, componentDetails: modelData.componentDetails)
+                    .onAppear {
+                        modelData.loadComponentDetails(name: component.name)
+                    }
+            }
+            */
         }
     }
 }
