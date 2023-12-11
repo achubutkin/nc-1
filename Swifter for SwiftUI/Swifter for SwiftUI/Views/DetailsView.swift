@@ -18,6 +18,7 @@ struct DetailsView: View {
                 if let details = componentDetails {
                     BlockTitle(content: details.name)
                         .fontDesign(.monospaced)
+                        .accessibilityLabel("Button component title.")
                     BlockParagraph(details.shortDescription)
                         .fontDesign(.monospaced)
                     

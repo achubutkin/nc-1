@@ -62,6 +62,7 @@ struct CodeBlockAndAICodeGeneratorRenderer: View {
                             .contentTransition(.symbolEffect(.replace))
                             .frame(width: scaledButtonSize, height: scaledButtonSize)
                             .tint(colorScheme == .dark ? Color.white : Color.black)
+                            .accessibilityLabel("Generate code with Chat GPT model.")
                         }
                         
                         Button(action: copyCodeBlock) {
@@ -74,6 +75,7 @@ struct CodeBlockAndAICodeGeneratorRenderer: View {
                         .buttonBorderShape(.circle)
                         .contentTransition(.symbolEffect(.replace))
                         .frame(width: scaledButtonSize, height: scaledButtonSize)
+                        .accessibilityLabel("Copy. Button. Press copy there then paste on your Mac.")
                     }
                 ))
             }

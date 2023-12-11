@@ -13,7 +13,7 @@ struct AllComponentsView: View {
     @Environment(ModelData.self) var modelData
 
     @State private var searchComponentText = ""
-    @State private var selectedComponents: Set<Component.ID> = [2]
+    @State private var selectedComponents: Set<Component.ID> = []
     @State private var selectedComponent: Component?
 
     var body: some View {
@@ -21,8 +21,8 @@ struct AllComponentsView: View {
             searchComponentText.isEmpty || group.components.contains(where: { component in component.name.contains(searchComponentText) })
         }
        
-        NavigationSplitView {
-            List(selection: $selectedComponents) {
+        NavigationStack {
+            List {
                 Section {
                     
                 } footer: {
@@ -54,6 +54,7 @@ struct AllComponentsView: View {
                             } label: {
                                 HStack {
                                     Text(component.name)
+                                        .accessibilityLabel("\(component.name) Component item. Open to read full description of this component.")
             
                                     if locked {
                                         Spacer()
@@ -70,7 +71,7 @@ struct AllComponentsView: View {
             }
             .searchable(text: $searchComponentText, prompt: "Type component name")
             .navigationTitle("Swift UI")
-        } detail: {
+        }
             /*
             let locked = component.locked ?? false
             
@@ -90,7 +91,6 @@ struct AllComponentsView: View {
                     }
             }
             */
-        }
     }
 }
 

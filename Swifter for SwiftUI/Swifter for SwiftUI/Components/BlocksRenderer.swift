@@ -21,6 +21,8 @@ struct BlocksRenderer: View {
         switch block.type {
         case .code:
             CodeBlockAndAICodeGeneratorRenderer(content: block.content, aiCodeGeneratorPrompt: block.aiCodeGeneratorPrompt)
+                .accessibilityAddTraits([.isSummaryElement])
+                .accessibilityLabel("Code block with AI Chat GPT Code Generator. Tap to Generate Code button to generate relevant example code.")
         case .text:
             TextBlockRenderer(content: block.content)
         case .preview:
